@@ -1,5 +1,8 @@
 # 🚧 Features
 
+Si le contenu d'une feature n'est pas clair, demander des explications avant d'enrichir le contenu de la feature avec les réponses obtenues.
+Quand il faut implémenter une feature, on commence par la déplacer dans "Current Feature"
+
 ## 🟡 Current Feature
 
 *(Aucune fonctionnalité en cours pour l’instant)*
@@ -7,18 +10,6 @@
 ---
 
 ## ⚪ Backlog
-
-### F002 - Add "Load INI" button
-
-**Description**
-Add a button in the main window to trigger configuration loading.
-
-**Requirements**
-
-* Button visible in UI
-* Click event handled
-
----
 
 ### F003 - Load and parse INI file
 
@@ -33,14 +24,23 @@ Allow user to select and load a `.ini` file.
 
 ---
 
-### F004 - Display configuration content
+### F004 - Log configuration content
 
 **Description**
-Show parsed INI content in the UI.
+Show parsed INI content in the UI. Here's an example of ini file file:
+
+```ini
+[CPU]
+R6502AP
+[IO]
+SYS6522A
+[Memory]
+HCS10017
+```
 
 **Requirements**
 
-* Display CPU / MEMORY / IO values
+* Log CPU / MEMORY / IO values
 * Basic UI feedback
 
 ---
@@ -132,6 +132,26 @@ Currently when the application is executed, no trace.log is generated.
 **Validation**
 
 * Running the application generate a trace.log
+
+**Status**
+COMPLETED
+
+---
+
+### F002 - Add "Load INI" button
+
+**Description**
+Add a button in the main window to trigger configuration loading.
+
+**Requirements**
+
+* Button visible in UI
+* Click event handled
+
+**Validation**
+
+* Build passes with `build.ps1`
+* Click handler is connected and logs the button event
 
 **Status**
 COMPLETED

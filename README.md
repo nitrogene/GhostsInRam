@@ -61,7 +61,13 @@ Ensure the following files exist at the root:
 
 ### 3. Build the project
 
-(Details to be completed depending on your CMake configuration)
+Use the provided script to configure and build the project:
+
+```powershell
+./build.ps1
+```
+
+This repository expects `build.ps1` to handle the toolchain and CMake preset selection.
 
 ---
 
