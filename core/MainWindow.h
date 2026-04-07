@@ -5,6 +5,9 @@
 #include <QPushButton>
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QTextEdit>
+#include <QString>
+#include <QMap>
  
 class QKeyEvent;
 
@@ -27,11 +30,16 @@ protected:
  
 private slots:
     void onLoadIniClicked();
- 
+
 private:
     struct KeyPos { int row; int col; };
     void handleKeyEvent(QKeyEvent* event, bool pressed);
+    void loadAndParseIniFile(const QString& filePath);
+    void updateConfigurationDisplay();
+    
     QPushButton* m_loadIniButton;
+    QTextEdit* m_configDisplay;
+    QMap<QString, QString> m_configuration;
 };
  
 #endif // MAINWINDOW_H

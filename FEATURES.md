@@ -1,54 +1,24 @@
 # 🚧 Features
 
 Si le contenu d'une feature n'est pas clair, demander des explications avant d'enrichir le contenu de la feature avec les réponses obtenues.
-Quand il faut implémenter une feature, on commence par la déplacer dans "Current Feature"
+Avant d'implémenter une feature, on commence toujours par la déplacer du backlog à "Current Feature".
+Une fois terminée: 
+
+ * elle est déplacée dans "Completed Features"
+ * un commit est effectué
 
 ## 🟡 Current Feature
 
-*(Aucune fonctionnalité en cours pour l’instant)*
+*(Aucune fonctionnalité en cours pour l'instant)*
 
 ---
 
 ## ⚪ Backlog
 
-### F003 - Load and parse INI file
-
-**Description**
-Allow user to select and load a `.ini` file.
-
-**Requirements**
-
-* File dialog opens
-* File is read successfully
-* Basic parsing works
-
----
-
-### F004 - Log configuration content
-
-**Description**
-Show parsed INI content in the UI. Here's an example of ini file file:
-
-```ini
-[CPU]
-R6502AP
-[IO]
-SYS6522A
-[Memory]
-HCS10017
-```
-
-**Requirements**
-
-* Log CPU / MEMORY / IO values
-* Basic UI feedback
-
----
-
 ### F005 - Define core interfaces
 
 **Description**
-Create base interfaces for hardware abstraction.
+Create some interfaces for hardware abstraction. They will be used to implemente plugin code for R6502AP, SYS6522A, HCS10017.
 
 **Requirements**
 
@@ -152,6 +122,60 @@ Add a button in the main window to trigger configuration loading.
 
 * Build passes with `build.ps1`
 * Click handler is connected and logs the button event
+
+**Status**
+COMPLETED
+
+---
+
+### F003 - Load and parse INI file
+
+**Description**
+Allow user to select and load a `.ini` file.
+
+**Requirements**
+
+* File dialog opens
+* File is read successfully
+* Basic parsing works
+
+**Validation**
+
+* Build passes with `build.ps1`
+* File dialog opens on button click
+* INI file is parsed correctly (sections and values)
+* Configuration is logged in trace.log
+
+**Status**
+COMPLETED
+
+---
+
+### F004 - Log configuration content
+
+**Description**
+Show parsed INI content in the UI. Here's an example of ini file file:
+
+```ini
+[CPU]
+R6502AP
+[IO]
+SYS6522A
+[Memory]
+HCS10017
+```
+
+**Requirements**
+
+* Log CPU / MEMORY / IO values
+* Basic UI feedback
+
+**Validation**
+
+* Build passes with `build.ps1`
+* Configuration values displayed in read-only QTextEdit after loading INI
+* CPU, Memory, IO values logged to trace.log and shown in UI
+* Placeholder text shown before file is loaded
 
 **Status**
 COMPLETED
